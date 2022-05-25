@@ -1,5 +1,5 @@
 {
-  "name": "sagereport",
+  "name": "@vraja-sage/sagereport",
   "version": "0.1.0",
   "description": "SAGE Report Generation Tool",
   "dependencies": {
@@ -57,6 +57,6 @@
     "url": "git+https://github.com/vraja-sage/sagereport.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@vraja-sage/"
+    "registry": "https://npm.pkg.github.com/"
   }
 }
