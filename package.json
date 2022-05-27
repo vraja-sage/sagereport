@@ -1,15 +1,18 @@
 {
   "name": "@vraja-sage/sagereport",
-  "version": "0.3.0",
+  "version": "1.1.1",
+  "author": "SageTeam",
   "description": "SAGE Report Generation Tool",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@reduxjs/toolkit": "^1.5.1",
     "@sage/design-tokens": "^2.3.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
-    "@vraja-sage/hello": "^1.0.0",
-    "@vraja-sage/sagereport": "^0.2.0",
+    "@vraja-sage/gitpack": "^0.1.0",
+    "@vraja-sage/hello": "^2.2.0",
+    "@vraja-sage/sagereport": "0.3.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.0.1",
     "carbon-react": "^106.0.2",
@@ -31,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "babel src/lib --out-dir dist --copy-files",
     "deploy": "npm publish",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -54,11 +57,19 @@
       "last 1 safari version"
     ]
   },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vraja-sage/sagereport.git"
   },
   "publishConfig": {
     "@vraja-sage:registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2"
   }
 }

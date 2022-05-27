@@ -1,23 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-import DisplayReport from './DisplayReport';
-import reportWebVitals from './reportWebVitals';
-// import './styles/styles.css';
-// import './styles/resizable.css';
-// import 'bootstrap/dist/css/bootstrap.css';  
-// // import { store, persistor } from './app/store';
-import * as serviceWorker from './serviceWorker';
-
-const dreport = require("@vraja-sage/sagereport/src");
 
 ReactDOM.render(
     <React.StrictMode>
-          <DisplayReport mainLayoutId={1} />
+          <Button label="test" kind="primary"/>
     </React.StrictMode>,
     document.getElementById('root')
   );
 
-serviceWorker.unregister();
+// serviceWorker.unregister();
 
-reportWebVitals();
+// reportWebVitals();
