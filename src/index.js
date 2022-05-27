@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
-import App from './App';
+import DisplayReport from './DisplayReport';
 import reportWebVitals from './reportWebVitals';
 // import './styles/styles.css';
 // import './styles/resizable.css';
@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
-          <App />
+          <DisplayReport mainLayoutId={1} />
     </React.StrictMode>,
     document.getElementById('root')
   );

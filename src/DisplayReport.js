@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import CarbonProvider from "carbon-react/lib/components/carbon-provider";
 import { GridContainer } from "carbon-react/lib/components/grid";
-import LayoutItemData from './LayoutItemData';
+import LayoutItemData from './Components/LayoutItemData';
 import Link from "carbon-react/lib/components/link";
 import axios from 'axios';
 
-const DisplayReport = () => {
-  console.info("aaaaaaaaaaaaa")
+// const aa = require('@vraja-sage/hello');
+//console.info("aaaaaaaaa",aa);
+const DisplayReport = ({mainLayoutId}) => {
+
   const [layoutData, setLayoutData ] = useState("");
   const [apiResponse, setApiResponse] = useState([]);
 
@@ -16,9 +18,9 @@ const DisplayReport = () => {
   const [componentLayout, setComponentLayout] = useState([]);
   const [subLayoutData, setSubLayoutData ] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
-  let pageurl = new URL(window.location.href);
-  let idValue = pageurl.searchParams.get("mainLayoutId");
-  const [layoutId, setLayoutId] = useState(idValue);
+  // let pageurl = new URL(window.location.href);
+  // let idValue = pageurl.searchParams.get("mainLayoutId");
+  const [layoutId, setLayoutId] = useState(mainLayoutId);
 
   const getApiData = () => {
     try{
