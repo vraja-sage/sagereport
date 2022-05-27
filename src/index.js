@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Button} from '@vraja-sage/gitpack';
 
 ReactDOM.render(
     <React.StrictMode>

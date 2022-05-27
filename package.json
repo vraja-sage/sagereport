@@ -1,6 +1,6 @@
 {
   "name": "@vraja-sage/sagereport",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "author": "SageTeam",
   "description": "SAGE Report Generation Tool",
   "dependencies": {

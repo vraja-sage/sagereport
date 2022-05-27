@@ -6,7 +6,8 @@ import Link from "carbon-react/lib/components/link";
 import axios from 'axios';
 
 const DisplayReport = () => {
-  console.info("aaaaaaaaaaaaa")
+  console.info("Welcome To Sage Report");
+  
   const [layoutData, setLayoutData ] = useState("");
   const [apiResponse, setApiResponse] = useState([]);
 
