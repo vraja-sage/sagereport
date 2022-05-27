@@ -1,6 +1,6 @@
 {
   "name": "@vraja-sage/sagereport",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "SAGE Report Generation Tool",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@vraja-sage/hello": "^1.0.0",
+    "@vraja-sage/sagereport": "^0.2.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.0.1",
     "carbon-react": "^106.0.2",

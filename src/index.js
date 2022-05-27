@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 // // import { store, persistor } from './app/store';
 import * as serviceWorker from './serviceWorker';
 
+const dreport = require("@vraja-sage/sagereport/src");
+
 ReactDOM.render(
     <React.StrictMode>
           <DisplayReport mainLayoutId={1} />
