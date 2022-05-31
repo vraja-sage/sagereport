@@ -5,7 +5,7 @@ import LayoutItemData from './LayoutItemData';
 import Link from "carbon-react/lib/components/link";
 import axios from 'axios';
 
-const DisplayReport = () => {
+const DisplayReport = ({ mainLayoutId }) => {
   console.info("Welcome To Sage Report");
   
   const [layoutData, setLayoutData ] = useState("");
@@ -18,7 +18,7 @@ const DisplayReport = () => {
   const [subLayoutData, setSubLayoutData ] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
   let pageurl = new URL(window.location.href);
-  let idValue = pageurl.searchParams.get("mainLayoutId");
+  let idValue = mainLayoutId ? mainLayoutId : pageurl.searchParams.get("mainLayoutId");
   const [layoutId, setLayoutId] = useState(idValue);
 
   const getApiData = () => {
