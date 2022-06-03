@@ -1,4 +1,4 @@
-import React, { useCallback} from 'react';
+import React, { useCallback, useState} from 'react';
 import Button from "carbon-react/lib/components/button";
 import { GridContainer, GridItem } from "carbon-react/lib/components/grid";
 import {FlatTable,FlatTableHead,FlatTableRow,FlatTableHeader, FlatTableBody, FlatTableCell} from "carbon-react/lib/components/flat-table";
@@ -11,11 +11,14 @@ import Typography, {
   ListItem,
 } from "carbon-react/lib/components/typography";
 
+const LayoutItemData = ({ showOverlayData,apiDataType, getLayoutcol, componentLayout, apiResponse, handleOpen }) => {
 
-const LayoutItemData = ({ apiDataType, getLayoutcol, componentLayout, apiResponse, handleOpen }) => {
 
-  const doBtnAction = (hrefLink) => {
-    window.open(hrefLink , "_blank");
+  const doBtnAction = (hrefLink, propsData) => {
+    console.info("props",propsData);
+    let { isDependent } = propsData;
+    showOverlayData(isDependent);
+    //setIsDialogOpen(true);
   }
 
   const constructTableData = (rowData, index) => {
@@ -58,15 +61,18 @@ const LayoutItemData = ({ apiDataType, getLayoutcol, componentLayout, apiRespons
   }
   const renderRowReport = (componentData) => {
 
-    let {type, props } = componentData;
+    let {type, props, isDisplay } = componentData;
+    
+   if(isDisplay === false) return null;
+
     let { data, tableHeader, tableContent, colValue, dataMethod } = props;
     type = (dataMethod === "api") ? `${type}Api` : type;
     let colRowVal = getLayoutcol(parseInt(colValue));
-    let tableHeaderData=[], tableBody=[], argOne = "", argTwo = "", argThree ="", argFour="", tableHeaderVal = [], rowValues={},apiData = "";
+    let tableHeaderData=[], tableBody=[], tableHeaderVal = [], rowValues={},apiData = "";
 
     if(dataMethod === "api") {
       apiData = getApiDataRow();
-      console.info("apiData",apiData);
+      // console.info("apiData",apiData);
       if(type == "TableApi" && apiData.tableHeader){
           tableHeaderVal = apiData.tableHeader;
           tableBody = apiData.tableBody;
@@ -81,8 +87,6 @@ const LayoutItemData = ({ apiDataType, getLayoutcol, componentLayout, apiRespons
       }
       rowValues = data;
     }
-
-    console.info(rowValues, "rowValues","=-=",type);
     switch (type) {
       case "Heading" : 
       case "HeadingApi":
@@ -134,7 +138,7 @@ const LayoutItemData = ({ apiDataType, getLayoutcol, componentLayout, apiRespons
           break;
       case "Button" : return (
         <GridItem alignSelf="end" justifySelf="end" gridColumn={colRowVal}>
-          <Button {...props} onClick={() => doBtnAction(rowValues)} className="bottom_btn">
+          <Button {...props} onClick={() => doBtnAction(rowValues, props)} className="bottom_btn">
               {rowValues}
           </Button>
         </GridItem>
@@ -184,6 +188,23 @@ const LayoutItemData = ({ apiDataType, getLayoutcol, componentLayout, apiRespons
         </GridItem>
       );
       break;
+      // case "Dialog" : {
+      //   let { header, contentTop, contentBottom, btnText } = rowValues;
+      //       return (
+      //       <GridItem id={apiDataType} alignSelf="stretch" justifySelf="stretch" gridColumn={colRowVal}>
+      //         <Dialog size="medium" open={true} title={header} onCancel={() => setIsDialogOpen(false)}>
+      //         <Form stickyFooter={true} leftSideButtons={<Button onClick={() => setIsDialogOpen(false)}>Cancel</Button>} saveButton={<Button buttonType="primary" type="submit">
+      //                 {btnText}
+      //               </Button>}>
+      //                 <p> {contentTop} </p>
+      //                 <Typography>Quarter 1  (6 April - 5 July 2024)</Typography>
+      //                 <p> {contentBottom} </p>
+      //           </Form>
+      //         </Dialog>
+      //       </GridItem>
+      //     );
+      //   }
+      // break;
     }
   }
 

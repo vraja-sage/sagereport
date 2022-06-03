@@ -43,7 +43,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var DisplayReport = function DisplayReport() {
+var DisplayReport = function DisplayReport(_ref) {
+  var mainLayoutId = _ref.mainLayoutId;
   console.info("Welcome To Sage Report");
 
   var _useState = (0, _react.useState)(""),
@@ -87,7 +88,7 @@ var DisplayReport = function DisplayReport() {
       setIsDisabled = _useState16[1];
 
   var pageurl = new URL(window.location.href);
-  var idValue = pageurl.searchParams.get("mainLayoutId");
+  var idValue = mainLayoutId ? mainLayoutId : pageurl.searchParams.get("mainLayoutId");
 
   var _useState17 = (0, _react.useState)(idValue),
       _useState18 = _slicedToArray(_useState17, 2),
@@ -141,7 +142,7 @@ var DisplayReport = function DisplayReport() {
   };
 
   var handleOpen = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(propsData, index, apiDataType) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(propsData, index, apiDataType) {
       var layoutId, getDataUrl;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
@@ -184,7 +185,7 @@ var DisplayReport = function DisplayReport() {
     }));
 
     return function handleOpen(_x, _x2, _x3) {
-      return _ref.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
 
